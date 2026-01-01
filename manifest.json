@@ -16,6 +16,15 @@
   "content_scripts": [
     {
       "matches": [
+        "https://codeforces.com/*"
+      ],
+      "js": [
+        "features/dark-mode/content.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
         "https://codeforces.com/contest/*/problem/*",
         "https://codeforces.com/problemset/problem/*/*",
         "https://codeforces.com/gym/*/problem/*"
