@@ -44,11 +44,6 @@ function applyDarkMode() {
       background-color: #ffffff !important;
     }
     
-    img, picture, video, iframe, canvas, svg,
-    [style*="background-image"] {
-      filter: invert(1) hue-rotate(-180deg) !important;
-    }
-    
     input, textarea, select {
       background-color: #2a2a2a !important;
       color: #e0e0e0 !important;
