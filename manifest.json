@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "betterCF",
+  "version": "0.0.1",
+  "description": "Enhanced Codeforces experience with multiple features",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://codeforces.com/*"
+  ],
+  "background": {
+    "service_worker": "features/friend-submissions/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://codeforces.com/contest/*/problem/*",
+        "https://codeforces.com/problemset/problem/*/*",
+        "https://codeforces.com/gym/*/problem/*"
+      ],
+      "js": [
+        "features/friend-submissions/content.js",
+        "features/quick-submit/content.js"
+      ],
+      "css": [
+        "features/friend-submissions/styles.css",
+        "features/quick-submit/styles.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://codeforces.com/contest/*/submit",
+        "https://codeforces.com/contest/*/submit/*",
+        "https://codeforces.com/problemset/submit",
+        "https://codeforces.com/problemset/submit/*",
+        "https://codeforces.com/gym/*/submit",
+        "https://codeforces.com/gym/*/submit/*"
+      ],
+      "js": [
+        "features/quick-submit/autofill.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

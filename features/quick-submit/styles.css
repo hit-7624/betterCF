@@ -1,0 +1,73 @@
+#submit-shortcut-box {
+  margin: 1em 0;
+}
+
+#submit-shortcut-box .caption.titled {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submit-shortcut-toggle {
+  font-size: 0.9em;
+  color: #666;
+  margin-right: 4px;
+}
+
+.submit-shortcut-content {
+  padding: 0.5em 1em 1em 1em;
+}
+
+.submit-shortcut-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.submit-shortcut-table td {
+  padding: 0.4em 0;
+}
+
+.submit-shortcut-label {
+  width: 120px;
+  font-weight: bold;
+  color: #000;
+  font-size: 0.9em;
+}
+
+.submit-shortcut-select {
+  padding: 4px 8px;
+  font-size: 0.9em;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  min-width: 200px;
+}
+
+.submit-shortcut-textarea {
+  width: 100%;
+  min-height: 250px;
+  padding: 8px;
+  font-family: 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  resize: vertical;
+  box-sizing: border-box;
+  tab-size: 4;
+  background: #fff;
+}
+
+.submit-shortcut-textarea:focus {
+  outline: none;
+  border-color: #7ca0cf;
+}
+
+.submit-shortcut-textarea::placeholder {
+  color: #888;
+}
+
+.submit-shortcut-btn {
+  margin-top: 0.5em;
+}
+
