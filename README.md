@@ -40,6 +40,16 @@ Submit solutions directly from problem pages without navigation:
 - Auto-fills and submits on the official submission page
 - Supports contests, problemset, and gym problems
 
+### 🌙 Dark Mode
+
+Toggle between dark and light themes across all Codeforces pages:
+
+- One-click theme toggle in the extension popup
+- Persistent theme preference across browser sessions
+- Real-time theme switching without page reload
+- Smart image handling to preserve visual quality
+- Works on all Codeforces pages
+
 ## Installation
 
 ### From Chrome Web Store
@@ -132,10 +142,21 @@ To use the Friends' Submissions feature, you need to configure your Codeforces A
 
 7. A new tab opens with the official submission page where your code is automatically filled and submitted
 
+### Using Dark Mode
+
+1. Click the betterCF icon in your browser toolbar
+
+2. Click the **sun/moon icon** in the top-right corner of the popup
+
+3. The theme changes immediately on the current Codeforces page
+
+4. Your preference is saved and applied to all Codeforces pages
+
 ## Supported Pages
 
 | Page Type | URL Pattern | Features |
 |-----------|-------------|----------|
+| All Codeforces | `codeforces.com/*` | Dark Mode |
 | Contest Problems | `codeforces.com/contest/*/problem/*` | Friends' Submissions, Quick Submit |
 | Problemset | `codeforces.com/problemset/problem/*/*` | Friends' Submissions, Quick Submit |
 | Gym Problems | `codeforces.com/gym/*/problem/*` | Friends' Submissions, Quick Submit |
@@ -157,6 +178,7 @@ betterCF stores the following data locally:
 |-----|---------|-------------|
 | `cfApiKey` | Chrome Sync | Your API key (synced across devices) |
 | `cfApiSecret` | Chrome Sync | Your API secret (synced across devices) |
+| `theme` | Chrome Local | Theme preference (dark/light) |
 | `betterCF_lastLang` | localStorage | Last selected programming language |
 | `betterCF_submitData` | localStorage | Temporary submission data (cleared after use) |
 
@@ -235,17 +257,23 @@ We welcome contributions! Here's how you can help:
 
 ```
 betterCF/
-├── manifest.json              # Extension configuration
-├── popup.html                 # Extension popup UI
-├── popup.js                   # Popup functionality
-├── friendsub-background.js    # Background service worker
-├── friendsub-content.js       # Friends' submissions content script
-├── friendsub-styles.css       # Friends' submissions styles
-├── submit-shortcut-content.js # Quick submit content script
-├── submit-shortcut-autofill.js # Submit page autofill script
-├── submit-shortcut-styles.css # Quick submit styles
-├── logo.png                   # Extension logo
-└── icons/                     # Extension icons
+├── manifest.json                        # Extension configuration
+├── logo.png                             # Extension logo
+├── popup/
+│   ├── popup.html                       # Extension popup UI
+│   └── popup.js                         # Popup functionality
+├── features/
+│   ├── dark-mode/
+│   │   └── content.js                   # Dark mode content script
+│   ├── friend-submissions/
+│   │   ├── background.js                # Background service worker
+│   │   ├── content.js                   # Friends' submissions content script
+│   │   └── styles.css                   # Friends' submissions styles
+│   └── quick-submit/
+│       ├── content.js                   # Quick submit content script
+│       ├── autofill.js                  # Submit page autofill script
+│       └── styles.css                   # Quick submit styles
+└── icons/                               # Extension icons
     ├── icon16.png
     ├── icon48.png
     └── icon128.png
@@ -288,7 +316,7 @@ betterCF/
 
 Looking for ideas? Here are some features we'd love to see:
 
-- [ ] Dark mode support
+- [x] Dark mode support
 - [ ] Customizable rating color schemes
 - [ ] Problem difficulty filters
 - [ ] Submission statistics
@@ -307,6 +335,11 @@ Found a bug? Please open an issue with:
 5. **Screenshots**: If applicable
 
 ## Version History
+
+### v0.0.2
+- Dark mode support with toggle in popup
+- Persistent theme preference
+- Real-time theme switching
 
 ### v0.0.1 (Initial Release)
 - Friends' Submissions feature
